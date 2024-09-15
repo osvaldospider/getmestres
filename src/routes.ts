@@ -1,6 +1,7 @@
 import { CategoryController } from "./controller/CategoryController"
 import { CustomerController } from "./controller/CustomerController"
 import { QuestionController } from "./controller/QuestionController"
+import { RequestAnswersController, RequestOrderAnswersController } from "./controller/RequestAnswersController"
 import { RequestOrderController } from "./controller/RequestOrderController"
 import { ServiceProviderController } from "./controller/ServiceProviderController"
 import { SubCategoryController } from "./controller/SubCategoryController"
@@ -35,15 +36,24 @@ export const Routes = [
     { method: "delete", route: "/customer/:id", controller: CustomerController, action: "remove"},
     { method: "post", route: "/customer/create", controller: CustomerController, action: "createCustomer"}, 
 
-    { method: "get", route: "/serviceprovider", controller: ServiceProviderController, action: "all"}, 
-    { method: "get", route: "/serviceprovider/:id", controller: ServiceProviderController, action: "one"}, 
-    { method: "post", route: "/serviceprovider", controller: ServiceProviderController, action: "save"}, 
-    { method: "delete", route: "/serviceprovider/:id", controller: ServiceProviderController, action: "remove"},
-    { method: "post", route: "/serviceprovider/create", controller: ServiceProviderController, action: "createServiceProvider"}, 
+    { method: "get", route: "/serviceProvider", controller: ServiceProviderController, action: "all"}, 
+    { method: "get", route: "/serviceProvider/:id", controller: ServiceProviderController, action: "one"}, 
+    { method: "post", route: "/serviceProvider", controller: ServiceProviderController, action: "save"}, 
+    { method: "delete", route: "/serviceProvider/:id", controller: ServiceProviderController, action: "remove"},
+    { method: "post", route: "/serviceProvider/create", controller: ServiceProviderController, action: "createServiceProvider"}, 
 
-    { method: "get", route: "/requestorder", controller: RequestOrderController, action: "all"}, 
+   /* { method: "get", route: "/requestorder", controller: RequestOrderController, action: "all"}, 
     { method: "get", route: "/requestorder/:id", controller: RequestOrderController, action: "one"}, 
     { method: "post", route: "/requestorder", controller: RequestOrderController, action: "save"}, 
-    { method: "delete", route: "/requestorder/:id", controller: RequestOrderController, action: "remove"},
+    { method: "delete", route: "/requestorder/:id", controller: RequestOrderController, action: "remove"},*/
+
+    { method: "get", route: "/requestOrder", controller: RequestOrderController, action: "all"}, 
+    { method: "get", route: "/requestOrder/:id", controller: RequestOrderController, action: "one"}, 
+    { method: "post", route: "/requestOrder", controller: RequestOrderController, action: "save"}, 
+    { method: "delete", route: "/requestOrder/:id", controller: RequestOrderController, action: "remove"},
+
+    { method: "get", route: "/requestAnswers/:orderUid/all", controller: RequestAnswersController, action: "all"}, 
+    { method: "post", route: "/requestAnswers", controller: RequestAnswersController, action: "save"}, 
+    { method: "delete", route: "/requestAnswers/:id", controller: RequestAnswersController, action: "remove"},
     
 ]
