@@ -3,6 +3,7 @@ import { BaseEntity } from "./BaseEntity";
 import { RequestStatus } from "./enum/RequestStatus"
 import { Customer} from "./Customer"
 import { ServiceProvider } from "./ServiceProvider";
+import { SubCategory } from "./SubCategory";
 
 @Entity({ name: 'RequestOrder'})
 export class RequestOrder extends BaseEntity{
@@ -13,7 +14,7 @@ export class RequestOrder extends BaseEntity{
     @Column({type: 'varchar', length:200})
     title: string
 
-    @Column({type: 'varchar', length:2000})
+    @Column({type: 'text'})
     description: string
 
     @Column()
@@ -21,6 +22,9 @@ export class RequestOrder extends BaseEntity{
 
     @ManyToOne(() => Customer, {eager: true})
     custumer: Customer;
+
+    @ManyToOne(() => SubCategory, {eager: true})
+    subCategory: SubCategory;
 
     @ManyToOne(() => ServiceProvider, {eager: true, nullable:true})
     serviceProvider: ServiceProvider;
